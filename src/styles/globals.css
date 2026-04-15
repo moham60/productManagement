@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #faf8ff;
+    --foreground: #131b2e;
+  }
+
+  .dark {
+    --background: #0f172a;
+    --foreground: #f1f5f9;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-body;
+  }
+}
+
+@layer components {
+  /* Typography Utilities */
+  .display-lg {
+    @apply text-5xl font-headline font-extrabold tracking-tighter;
+  }
+
+  .title-md {
+    @apply text-lg font-headline font-semibold;
+  }
+
+  .label-sm {
+    @apply text-xs font-label font-bold uppercase tracking-widest;
+  }
+
+  .body-sm {
+    @apply text-sm font-body;
+  }
+
+  /* Architectural Editor Card */
+  .arch-card {
+    @apply bg-surface-container-lowest dark:bg-slate-900 rounded-xl overflow-hidden shadow-ambient hover:shadow-lg transition-all duration-300;
+  }
+
+  .arch-card-hoverable {
+    @apply arch-card hover:-translate-y-1 group;
+  }
+
+  /* Architectural Editor Glass Effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-surface/80 dark:bg-slate-900/80 border border-outline-variant/10 dark:border-slate-700/30;
+  }
+
+  /* Architectural Editor Buttons */
+  .arch-btn-primary {
+    @apply px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-lg font-bold shadow-md hover:opacity-90 transition-opacity;
+  }
+
+  .arch-btn-secondary {
+    @apply px-6 py-3 bg-surface-container-high dark:bg-slate-800 text-on-surface dark:text-slate-100 rounded-lg font-semibold hover:bg-surface-container-highest dark:hover:bg-slate-700 transition-colors;
+  }
+
+  .arch-btn-tertiary {
+    @apply px-6 py-3 bg-transparent text-primary dark:text-blue-400 rounded-lg font-semibold hover:bg-primary/10 dark:hover:bg-blue-400/10 transition-colors;
+  }
+
+  /* Architectural Editor Form Inputs */
+  .arch-input {
+    @apply w-full px-4 py-3 bg-surface-container-low dark:bg-slate-800 border-none rounded-lg text-on-surface dark:text-slate-100 placeholder-on-surface-variant dark:placeholder-slate-500 focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest dark:focus:bg-slate-700 transition-all font-body;
+  }
+
+  .arch-textarea {
+    @apply w-full px-4 py-3 bg-surface-container-low dark:bg-slate-800 border-none rounded-lg text-on-surface dark:text-slate-100 placeholder-on-surface-variant dark:placeholder-slate-500 focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest dark:focus:bg-slate-700 transition-all font-body resize-none;
+  }
+
+  .arch-label {
+    @apply block text-sm font-semibold text-on-surface dark:text-slate-200 mb-2;
+  }
+
+  /* Grid */
+  .editorial-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
+  }
+
+  /* No-Line Rule - use color shifts instead of borders */
+  .no-border {
+    @apply border-none;
+  }
+
+  /* Error Text */
+  .error-text {
+    @apply text-xs font-medium text-error mt-1;
+  }
+}
+
+@layer utilities {
+  .surface-area {
+    @apply bg-surface dark:bg-slate-950;
+  }
+
+  .surface-area-low {
+    @apply bg-surface-container-low dark:bg-slate-900;
+  }
+
+  .text-primary-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent;
+  }
+}
